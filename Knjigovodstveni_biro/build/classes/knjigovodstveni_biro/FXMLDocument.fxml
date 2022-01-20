@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="890.0" prefWidth="1134.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="knjigovodstveni_biro.FXMLDocumentController">
+   <children>
+      <SplitPane dividerPositions="0.09742120343839542" layoutY="-6.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-6.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="19.0" prefWidth="598.0" style="-fx-background-color: #2a9df4;">
+               <children>
+                  <ComboBox fx:id="samostalniPreduzetnikComboBox" layoutX="309.0" layoutY="17.0" onAction="#onSamostalniPreduzetnikComboBoxAction" prefHeight="25.0" prefWidth="197.0" />
+                  <Label layoutX="93.0" layoutY="19.0" text="Samostalni preduzetnik" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab text="Izlazna Faktura">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane layoutX="200.0" layoutY="155.0" prefHeight="441.0" prefWidth="798.0" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="525.0" prefWidth="894.0">
+                                             <children>
+                                                <VBox layoutX="53.0" layoutY="66.0" prefHeight="265.0" prefWidth="186.0" spacing="35.0">
+                                                   <children>
+                                                      <Label text="Naziv fakture" />
+                                                      <Label text="Kupac" />
+                                                      <Label text="Iznos fakture" />
+                                                      <Label layoutX="10.0" layoutY="92.0" text="Iznos izvoza" />
+                                                      <Label layoutX="10.0" layoutY="133.0" text="Osnovica za PDV" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="267.0" layoutY="57.0" prefHeight="226.0" prefWidth="182.0" spacing="25.0">
+                                                   <children>
+                                                      <TextField fx:id="nazivIFTextField" />
+                                                      <ComboBox fx:id="kupacComboBox" onAction="#kupacIzlaznaFakturaOnAction" prefHeight="33.0" prefWidth="182.0" />
+                                                      <TextField fx:id="iznosIFTextField" layoutX="10.0" layoutY="10.0" promptText="0.00" />
+                                                      <TextField fx:id="iznosIzvozaTextField" promptText="0.00" />
+                                                      <TextField fx:id="osnovicaPDVTextField" layoutX="10.0" layoutY="165.0" promptText="0.00" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox fx:id="dostavaVBox" layoutX="21.0" layoutY="300.0" prefHeight="138.0" prefWidth="422.0" spacing="20.0">
+                                                   <children>
+                                                      <HBox prefHeight="34.0" prefWidth="422.0" spacing="120.0" />
+                                                      <HBox prefHeight="59.0" prefWidth="418.0" spacing="120.0" />
+                                                   </children>
+                                                </VBox>
+                                                <Button fx:id="proknjiziIFButton" layoutX="688.0" layoutY="496.0" mnemonicParsing="false" onAction="#onProknjiziIFButtonClick" prefHeight="31.0" prefWidth="193.0" text="Proknjiži" />
+                                                <Separator layoutX="22.0" layoutY="398.0" prefHeight="50.0" prefWidth="1087.0" />
+                                                <VBox layoutX="550.0" layoutY="48.0" prefHeight="301.0" prefWidth="187.0" spacing="35.0">
+                                                   <children>
+                                                      <Label text="Datum" />
+                                                      <Label text="JIB" />
+                                                      <Label text="Iznos vanposl.svrhe" />
+                                                      <Label text="Iznos ostalo" />
+                                                      <Label prefHeight="21.0" prefWidth="179.0" text="Ukupni PDV" />
+                                                      <Label layoutX="10.0" layoutY="194.0" prefHeight="21.0" prefWidth="179.0" text="Vrsta prihoda" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="751.0" layoutY="48.0" prefHeight="194.0" prefWidth="193.0" spacing="25.0">
+                                                   <children>
+                                                      <DatePicker fx:id="datumIFDate" prefHeight="32.0" prefWidth="193.0" />
+                                                      <TextField fx:id="jibKupcaTextField" />
+                                                      <TextField fx:id="ivsTextField" promptText="0.00" />
+                                                      <TextField fx:id="ioTextField" promptText="0.00" />
+                                                      <TextField fx:id="updvTextField1" layoutX="10.0" layoutY="149.0" promptText="0.00" />
+                                                      <ComboBox fx:id="vrstaPrihodaComboBox" prefHeight="25.0" prefWidth="197.0" />
+                                                   </children>
+                                                </VBox>
+                                             </children></AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab text="Ulazna Faktura">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane layoutX="200.0" layoutY="155.0" prefHeight="441.0" prefWidth="798.0" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <items>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="525.0" prefWidth="894.0">
+                                             <children>
+                                                <VBox layoutX="56.0" layoutY="48.0" prefHeight="241.0" prefWidth="181.0" spacing="35.0">
+                                                   <children>
+                                                      <Label text="Naziv fakture" />
+                                                      <Label text="Dobavljač" />
+                                                      <Label text="Iznos bez PDV" />
+                                                      <Label layoutX="10.0" layoutY="92.0" text="Iznos pauš.naknade" />
+                                                      <Label layoutX="10.0" layoutY="133.0" text="Ulazni porez odbitni" />
+                                                      <Label prefHeight="21.0" prefWidth="179.0" text="Vrsta rashoda" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="271.0" layoutY="43.0" prefHeight="312.0" prefWidth="182.0" spacing="25.0">
+                                                   <children>
+                                                      <TextField fx:id="nazivUFTextField" />
+                                                      <ComboBox fx:id="dobavljacComboBox" onAction="#dobavljacUlaznaFakturaOnAction" prefHeight="33.0" prefWidth="182.0" />
+                                                      <TextField fx:id="iznosBezPDVTextField" layoutX="10.0" layoutY="10.0" promptText="0.00" />
+                                                      <TextField fx:id="ipnTextField" promptText="0.00" />
+                                                      <TextField fx:id="upoTextField" layoutX="10.0" layoutY="165.0" promptText="0.00" />
+                                                      <ComboBox fx:id="vrstaRashodaComboBox" prefHeight="25.0" prefWidth="197.0" />
+                                                   </children>
+                                                </VBox>
+                                                <Button fx:id="proknjiziUFButton" layoutX="719.0" layoutY="503.0" mnemonicParsing="false" onAction="#onProknjiziUFButtonClick" prefHeight="20.0" prefWidth="193.0" text="Proknjiži" />
+                                                <Separator layoutX="41.0" layoutY="400.0" prefHeight="50.0" prefWidth="1007.0" />
+                                                <VBox layoutX="599.0" layoutY="48.0" prefHeight="301.0" prefWidth="166.0" spacing="35.0">
+                                                   <children>
+                                                      <Label text="Datum" />
+                                                      <Label text="JIB" />
+                                                      <Label text="Ukupno sa PDV" />
+                                                      <Label text="Ukupno ul.porez" />
+                                                      <Label layoutX="10.0" layoutY="148.0" text="Ul.porez neodbitni" />
+                                                      <CheckBox fx:id="uvozCheckBox" mnemonicParsing="false" text="Uvoz" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="788.0" layoutY="48.0" prefHeight="237.0" prefWidth="193.0" spacing="25.0">
+                                                   <children>
+                                                      <DatePicker fx:id="datumUFDate" prefHeight="32.0" prefWidth="193.0" />
+                                                      <TextField fx:id="jibDobavljacaTextField" />
+                                                      <TextField fx:id="ukupnoSaPDVTextField" promptText="0.00" />
+                                                      <TextField fx:id="uupTextField" promptText="0.00" />
+                                                      <TextField fx:id="upnTextField" layoutX="10.0" layoutY="149.0" promptText="0.00" />
+                                                      <CheckBox fx:id="gotovinaCheckBox" mnemonicParsing="false" text="Gotovina" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab text="Komitenti">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.6345132743362832" layoutX="291.0" layoutY="42.0" prefHeight="520.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="585.0" prefWidth="486.0">
+                                             <children>
+                                                <TableView fx:id="komitentiTableView" layoutX="-1.0" prefHeight="756.0" prefWidth="711.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columns>
+                                                      <TableColumn fx:id="jibTableColumn" prefWidth="127.0" text="JIB" />
+                                                    <TableColumn fx:id="nazivTableColumn" prefWidth="148.0" text="Naziv" />
+                                                      <TableColumn fx:id="mjestoTableColumn" prefWidth="141.0" text="Mjesto" />
+                                                      <TableColumn fx:id="ziroRacunTableColumn" prefWidth="170.0" text="Žiro Racun" />
+                                                    <TableColumn fx:id="saldoTableColumn" prefWidth="127.0" text="Saldo" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="585.0" prefWidth="378.0">
+                                             <children>
+                                                <Text fill="#0064ff" layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prikaz komitenata" underline="true">
+                                                   <font>
+                                                      <Font size="21.0" />
+                                                   </font>
+                                                </Text>
+                                                <ComboBox fx:id="komitentComboBox" layoutX="198.0" layoutY="59.0" prefWidth="193.0" />
+                                                <Button fx:id="prikaziKomitenteButton" layoutX="262.0" layoutY="105.0" mnemonicParsing="false" onAction="#onPrikaziKomitentaButtonClick" prefHeight="30.0" prefWidth="100.0" text="Prikaži" />
+                                                <Label layoutX="7.0" layoutY="56.0" prefHeight="37.0" prefWidth="179.0" text="Tip komitenta" AnchorPane.leftAnchor="7.0" />
+                                                <Text fill="#0064ff" layoutX="22.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Komitent" underline="true">
+                                                   <font>
+                                                      <Font size="21.0" />
+                                                   </font>
+                                                </Text>
+                                                <VBox layoutX="22.0" layoutY="174.0" prefHeight="438.0" prefWidth="352.0" spacing="20.0">
+                                                   <children>
+                                                      <HBox prefHeight="41.0" prefWidth="352.0">
+                                                         <children>
+                                                            <Label prefHeight="21.0" prefWidth="164.0" text="JIB" />
+                                                            <TextField fx:id="jibKomitentaTextField" prefHeight="31.0" prefWidth="186.0" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox fillHeight="false" spacing="30.0">
+                                                         <children>
+                                                            <Label prefHeight="26.0" prefWidth="131.0" text="Naziv" />
+                                                            <TextField fx:id="nazivTextField" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox fillHeight="false" prefHeight="13.0" prefWidth="100.0" spacing="30.0">
+                                                         <children>
+                                                            <Label prefHeight="26.0" prefWidth="131.0" text="PDV sistem" />
+                                                            <CheckBox fx:id="PDVSistemCheckBox" mnemonicParsing="false" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox prefHeight="22.0" prefWidth="100.0" spacing="30.0">
+                                                         <children>
+                                                            <Label prefHeight="26.0" prefWidth="132.0" text="Adresa" />
+                                                            <TextField fx:id="adresaTextField" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox prefHeight="26.0" prefWidth="100.0" spacing="30.0">
+                                                         <children>
+                                                            <Label prefHeight="21.0" prefWidth="167.0" text="Mjesto" />
+                                                            <ComboBox fx:id="mjestoComboBox" prefHeight="31.0" prefWidth="222.0" />
+                                                         </children></HBox>
+                                                      <HBox prefHeight="100.0" prefWidth="200.0">
+                                                         <children>
+                                                            <Label prefHeight="31.0" prefWidth="163.0" text="Tip komitenta" />
+                                                            <ComboBox fx:id="komitentComboBox11" layoutX="171.0" layoutY="10.0" prefWidth="193.0" />
+                                                         </children></HBox>
+                                                      <HBox layoutX="10.0" layoutY="122.0" prefHeight="13.0" prefWidth="100.0" spacing="30.0">
+                                                         <children>
+                                                            <Label prefHeight="26.0" prefWidth="131.0" text="Telefon" />
+                                                            <TextField fx:id="telefonTextField" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox layoutX="10.0" layoutY="345.0" prefHeight="13.0" prefWidth="100.0" spacing="30.0">
+                                                         <children>
+                                                            <Label prefHeight="26.0" prefWidth="131.0" text="Banka" />
+                                                            <ComboBox fx:id="bankaComboBox" prefWidth="193.0" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox prefHeight="100.0" prefWidth="200.0">
+                                                         <children>
+                                                            <Label prefHeight="26.0" prefWidth="163.0" text="Žiro Racun" />
+                                                            <TextField fx:id="ziroRacunTextField1" />
+                                                         </children></HBox>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="183.0" layoutY="629.0" prefHeight="117.0" prefWidth="179.0" spacing="10.0">
+                                                   <children>
+                                                      <Button fx:id="dodajKomitentaButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onDodajKomitentaButtonClick" prefHeight="31.0" prefWidth="190.0" text="Dodaj" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children></AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab fx:id="pdvPrijavaTab" text="PDV prijava">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane layoutX="200.0" layoutY="155.0" prefHeight="441.0" prefWidth="798.0" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <items>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="525.0" prefWidth="894.0">
+                                             <children>
+                                                <VBox layoutX="12.0" layoutY="102.0" prefHeight="463.0" prefWidth="223.0" spacing="25.0">
+                                                   <children>
+                                                      <Label text="Isporuke" />
+                                                      <Label text="Vrijednost izvoza" />
+                                                      <Label layoutX="10.0" layoutY="92.0" text="Isporuke oslob.pl.PDV-a" />
+                                                      <Label layoutX="10.0" layoutY="133.0" text="PDV obračunat na izlaze" />
+                                                      <Label prefHeight="21.0" prefWidth="213.0" text="Iznos PDV za uplatu/povrat" />
+                                                      <Separator prefHeight="50.0" prefWidth="421.0" />
+                                                      <Label layoutX="10.0" layoutY="240.0" prefHeight="21.0" prefWidth="224.0" text="PDV na isporuke licima koja nisu" />
+                                                      <Label layoutX="10.0" layoutY="268.0" prefHeight="21.0" prefWidth="213.0" text="registrovani PDV obveznici u:" />
+                                                      <Label layoutX="10.0" layoutY="194.0" prefHeight="21.0" prefWidth="213.0" text="Federacija BIH" />
+                                                      <Label layoutX="10.0" layoutY="240.0" prefHeight="21.0" prefWidth="213.0" text="Republika Srpska" />
+                                                      <Label layoutX="10.0" layoutY="286.0" prefHeight="21.0" prefWidth="213.0" text="Brčko Distrikt" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="254.0" layoutY="103.0" prefHeight="215.0" prefWidth="190.0" spacing="15.0">
+                                                   <children>
+                                                      <TextField fx:id="isporukeTextField" />
+                                                      <TextField fx:id="izvozTextField" layoutX="10.0" layoutY="10.0" />
+                                                      <TextField fx:id="ioppTextField" layoutX="10.0" layoutY="56.0" />
+                                                      <TextField fx:id="izlazniPDVTextField" layoutX="10.0" layoutY="102.0" />
+                                                      <TextField fx:id="uplpovrTextField" layoutX="10.0" layoutY="148.0" />
+                                                   </children>
+                                                </VBox>
+                                                <Button fx:id="generisiPDVprijavuButton" layoutX="689.0" layoutY="21.0" mnemonicParsing="false" onAction="#onGenerisiPDVprijavuButtonClick" prefHeight="31.0" prefWidth="193.0" text="Generiši PDV prijavu" />
+                                                <Separator layoutX="36.0" layoutY="52.0" prefHeight="50.0" prefWidth="1023.0" />
+                                                <VBox layoutX="461.0" layoutY="107.0" prefHeight="251.0" prefWidth="172.0" spacing="25.0">
+                                                   <children>
+                                                      <Label text="Nabavke" />
+                                                      <Label text="Vrijednost uvoza" />
+                                                      <Label text="Vrij.nab.poljopr." />
+                                                      <Label layoutX="10.0" layoutY="102.0" text="PDV obračunat na ulaze" />
+                                                      <Label layoutX="10.0" layoutY="148.0" text="PDV na uvoz" />
+                                                      <Label layoutX="10.0" layoutY="194.0" text="Pauš.nakn.za poljopr." />
+                                                      <Label layoutX="10.0" layoutY="240.0" text="Ulazni PDV(ukupno)" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="641.0" layoutY="103.0" prefHeight="179.0" prefWidth="193.0" spacing="15.0">
+                                                   <children>
+                                                      <TextField fx:id="nabavkeTextField" prefHeight="10.0" prefWidth="193.0" />
+                                                      <TextField fx:id="uvozTextField" />
+                                                      <TextField fx:id="vnpTextField" />
+                                                      <TextField fx:id="ulazniTextField" layoutX="10.0" layoutY="102.0" />
+                                                      <TextField fx:id="ioTextField111" layoutX="10.0" layoutY="148.0" />
+                                                      <TextField fx:id="pnzpTextField" layoutX="10.0" layoutY="194.0" />
+                                                      <TextField fx:id="ulazniUkupanPDVTextField" layoutX="10.0" layoutY="240.0" />
+                                                   </children>
+                                                </VBox>
+                                                <DatePicker fx:id="datumOdDate" layoutX="170.0" layoutY="19.0" prefHeight="32.0" prefWidth="193.0" />
+                                                <Label layoutX="43.0" layoutY="25.0" text="Datum Od" />
+                                                <Label layoutX="401.0" layoutY="25.0" text="Datum Do" />
+                                                <DatePicker fx:id="datumDoDate" layoutX="479.0" layoutY="20.0" prefHeight="32.0" prefWidth="193.0" />
+                                                <VBox layoutX="252.0" layoutY="448.0" prefHeight="123.0" prefWidth="200.0" spacing="15.0">
+                                                   <children>
+                                                      <TextField fx:id="fbihTextField" prefHeight="6.0" prefWidth="193.0" />
+                                                      <TextField fx:id="rsTextField" layoutX="10.0" layoutY="10.0" />
+                                                      <TextField fx:id="bdTextField" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab onSelectionChanged="#onIsplataTabSelectionChanged" text="Isplata">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.6424778761061947" layoutX="251.0" layoutY="200.0" prefHeight="481.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <items>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="isplataTableView" layoutX="31.0" layoutY="70.0" onMouseClicked="#isplataTableViewOnMouseClicked" prefHeight="756.0" prefWidth="588.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="dobavljacTableColumn" prefWidth="99.0" text="Dobavljač" />
+                                                    <TableColumn fx:id="datumIsplateTableColumn" prefWidth="84.0" text="Datum" />
+                                                      <TableColumn fx:id="brojDokIsplateTableColumn" prefWidth="125.0" text="Broj Dokumenta" />
+                                                      <TableColumn fx:id="iznosIsplateTableColumn" prefWidth="105.0" text="Iznos" />
+                                                      <TableColumn fx:id="opisIsplateTableColumn" prefWidth="125.0" text="Opis" />
+                                                      <TableColumn fx:id="bankaIsplateTableColumn" prefWidth="70.0" text="Banka" />
+                                                      <TableColumn fx:id="vrstaRashodaTableColumn" prefWidth="113.0" text="Vrsta Rashoda" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="756.0" prefWidth="635.0">
+                                             <children>
+                                                <VBox layoutX="34.0" layoutY="81.0" prefHeight="494.0" prefWidth="138.0" spacing="35.0">
+                                                   <children>
+                                                      <Label text="Dobavljač" />
+                                                      <Label text="Datum isplate" />
+                                                      <Label text="Faktura" />
+                                                      <Label text="Broj dokumenta" />
+                                                      <Label text="Iznos" />
+                                                      <Label text="Opis" />
+                                                      <Label text="Banka" />
+                                                      <Label text="Vrsta rashoda" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="172.0" layoutY="81.0" prefHeight="517.0" prefWidth="202.0" spacing="25.0">
+                                                   <children>
+                                                      <ComboBox fx:id="dobavljacComboBox1" onAction="#dobavljacComboBox1OnAction" prefHeight="15.0" prefWidth="202.0" />
+                                                      <DatePicker fx:id="datumIsplateDate1" prefHeight="31.0" prefWidth="218.0" />
+                                                      <ComboBox fx:id="fakturaUlaznaComboBox1" prefHeight="31.0" prefWidth="220.0" />
+                                                      <TextField fx:id="brojDokumentaTextField1" />
+                                                      <TextField fx:id="iznosIsplateTextField1" prefHeight="42.0" prefWidth="158.0" promptText="0.00" />
+                                                      <TextField fx:id="opisIsplateTextField1" />
+                                                      <ComboBox fx:id="bankaComboBox1" prefHeight="31.0" prefWidth="268.0" />
+                                                      <ComboBox fx:id="vrstaRashodaComboBox1" prefHeight="31.0" prefWidth="242.0" />
+                                                      <Button fx:id="proknjiziIsplatuButton" mnemonicParsing="false" onAction="#onProknjiziIsplatuButtonClick" prefHeight="31.0" prefWidth="208.0" text="Proknjiži" />
+                                                      <Button fx:id="izmijeniIsplatuButton" layoutX="10.0" layoutY="458.0" mnemonicParsing="false" onAction="#onIzmijeniIsplatuButtonClick" prefHeight="31.0" prefWidth="208.0" text="Izmijeni" />
+                                                      <Button fx:id="obrisiIsplatuButton" layoutX="10.0" layoutY="469.0" mnemonicParsing="false" onAction="#onObrisiIsplatuButtonClick" prefHeight="31.0" prefWidth="208.0" text="Obriši" />
+                                                   </children>
+                                                </VBox>
+                                                <Text fill="#0064ff" layoutX="34.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Isplate" underline="true">
+                                                   <font>
+                                                      <Font size="21.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </AnchorPane>
+                                       </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="uplataTab" onSelectionChanged="#onUplataTabSelectionChanged" text="Uplata">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.6424778761061947" layoutX="251.0" layoutY="200.0" prefHeight="481.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <items>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="uplataTableView" layoutX="31.0" layoutY="70.0" onMouseClicked="#uplataTableViewOnMouseClicked" prefHeight="756.0" prefWidth="588.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="kupacTableColumn1" prefWidth="99.0" text="Kupac" />
+                                                      <TableColumn fx:id="datumUplateTableColumn1" prefWidth="84.0" text="Datum" />
+                                                      <TableColumn fx:id="brojDokIUplateTableColumn1" prefWidth="125.0" text="Broj Dokumenta" />
+                                                      <TableColumn fx:id="iznosUplateTableColumn1" prefWidth="105.0" text="Iznos" />
+                                                      <TableColumn fx:id="opisUplateTableColumn1" prefWidth="125.0" text="Opis" />
+                                                      <TableColumn fx:id="bankaUplateTableColumn1" prefWidth="70.0" text="Banka" />
+                                                      <TableColumn fx:id="vrstaPrihodaTableColumn1" prefWidth="113.0" text="Vrsta Prihoda" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="756.0" prefWidth="635.0">
+                                             <children>
+                                                <Text fill="#0064ff" layoutX="34.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Uplate" underline="true">
+                                                   <font>
+                                                      <Font size="21.0" />
+                                                   </font>
+                                                </Text>
+                                                <VBox layoutX="183.0" layoutY="74.0" prefHeight="479.0" prefWidth="188.0" spacing="25.0">
+                                                   <children>
+                                                      <ComboBox fx:id="kupacComboBox1" onAction="#kupacComboBox1OnAction" prefHeight="40.0" prefWidth="190.0" />
+                                                      <DatePicker fx:id="datumUplateDate1" prefHeight="40.0" prefWidth="190.0" />
+                                                      <ComboBox fx:id="fakturaIzlaznaComboBox1" prefHeight="40.0" prefWidth="190.0" />
+                                                      <TextField fx:id="brojDokumentaTextField2" prefHeight="31.0" prefWidth="190.0" />
+                                                      <TextField fx:id="iznosUplateTextField1" prefHeight="42.0" prefWidth="158.0" promptText="0.00" />
+                                                      <ComboBox fx:id="bankaComboBox2" prefHeight="40.0" prefWidth="190.0" />
+                                                      <TextField fx:id="opisUplateTextField1" />
+                                                      <ComboBox fx:id="vrstaPrihodaComboBox1" prefHeight="40.0" prefWidth="190.0" />
+                                                      <Button fx:id="proknjiziUplatuButton" mnemonicParsing="false" onAction="#onProknjiziUplatuButtonClick" prefHeight="40.0" prefWidth="190.0" text="Proknjiži" />
+                                                      <Button fx:id="izmijeniUplatuButton" layoutX="10.0" layoutY="459.0" mnemonicParsing="false" onAction="#onIzmijeniUplatuButtonClick" prefHeight="40.0" prefWidth="190.0" text="Izmijeni" />
+                                                      <Button fx:id="obrisiUplatuButton" layoutX="10.0" layoutY="515.0" mnemonicParsing="false" onAction="#onObrisiUplatuButtonClick" prefHeight="40.0" prefWidth="190.0" text="Obriši" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="33.0" layoutY="84.0" prefHeight="475.0" prefWidth="123.0" spacing="35.0" AnchorPane.bottomAnchor="197.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="244.0" AnchorPane.topAnchor="84.0">
+                                                   <children>
+                                                      <Label text="Kupac" />
+                                                      <Label text="Datum uplate" />
+                                                      <Label text="Faktura" />
+                                                      <Label text="Broj dokumenta" />
+                                                      <Label text="Iznos" />
+                                                      <Label text="Banka" />
+                                                      <Label text="Opis" />
+                                                      <Label text="Vrsta prihoda" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
